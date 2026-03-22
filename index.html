@@ -1,58 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <title>Kanban Float Demo</title>
     <link rel="stylesheet" href="style.css">
-    <title>Лабораторна робота нумер 3</title>
 </head>
 <body>
-        <a href="https://chmnu.edu.ua" class="img"><img src="./img/Mda.jpg" alt="ЧНУ"></a>
-    <div class="facults">
-        <h1 align="center">Факультети</h1>
-        <ul>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/medichnij-institut/">Навчально-науковий медичний інститут</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/institut-filologiyi/">Факультет філології</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/institut-pislyadiplomnoyi-osviti/">Навчально-науковий інститут післядипломної освіти</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/fakultet-fizichnogo-vihovannya-ta-sportu/">Факультет фізичного виховання та спорту</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/fakultet-komp-yuternih-nauk/">Факультет комп’ютерних наук</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/fakultet-ekonomichnih-nauk/">Факультет економічних наук</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/fakultet-politichnih-nauk/">Факультет політичних наук</a></li>
-            <li><a href="https://chmnu.edu.ua/category/fakulteti/yuridichnij-fakultet/">Юридичний факультет</a></li>
-        </ul>
-    </div>
+    <div class="main-container">
+        <h1>CSS Float Kanban Board</h1>
+        <div class="kanban-board clearfix">
+            <div class="kanban-column todo-col">
+                <div class="column-header">
+                    <h2>To Do 📌</h2>
+                    <span class="task-count">3</span>
+                </div>
+                <div class="column-content"></div>
+                <div class="input">
+                  <input type="text" class="0">
+                  <button>+</button>
+                </div>
+            </div>
 
-    <div class="roblox">
-        <a href="https://www.roblox.com/" class="roblox__img"><img src="./img/roblox-1966070177.gif" alt="ROBLOX"></a>
-        <h2 align="center">Your name on roblox</h2>
-        <form action="#">
-            <label for="card">Your card:*</label>
-            <label for="card" class="err card">Write your card!!!!</label>
-            <input type="number" id="card" placeholder="4012888888881881">
-            <label for="cvv">Your cvv:*</label>
-            <label for="card" class="err cvv">Write your CVV!!!!</label>
-            <input type="number" id="cvv" placeholder="7233">
-            <label for="name">Your name and surname(latin capital letters):*</label>
-            <label for="card" class="err name">Write your name and surname!!!!</label>
-            <input type="text" id="name" placeholder="CAPITAL LETTERS">
-            <button>Submit</button>
-        </form>
-    </div>
-    <script>
-        document.querySelector('button').addEventListener('click', e => {
-            e.preventDefault()
-            const name = document.getElementById('name').value
-            if (name === '') document.querySelector('.name.err').style.display = "inline-block"
-            const cvv = document.getElementById('cvv').value
-            if (cvv === '') document.querySelector('.cvv.err').style.display = "inline-block"
-            const card = document.getElementById('card').value
-            if (card === '') document.querySelector('.card.err').style.display = "inline-block"
+            <div class="kanban-column progress-col">
+                <div class="column-header">
+                    <h2>In Progress 🔨</h2>
+                     <span class="task-count">2</span>
+                </div>
+                <div class="column-content"></div>
+                <div class="input">
+                  <input type="text" class="1">
+                  <button>+</button>
+                </div>
+            </div>
 
-            if (name !== '' && cvv !== '' && card !== '') {
-                alert('Hi, ' + name)
-            }
-        })
-    </script>
+            <div class="kanban-column done-col">
+                <div class="column-header">
+                    <h2>Done ✅</h2>
+                     <span class="task-count">1</span>
+                </div>
+                <div class="column-content"></div>
+                <div class="input">
+                  <input type="text" class="2">
+                  <button>+</button>
+                </div>
+            </div>
+    <script src="./script.js"></script>
 </body>
 </html>

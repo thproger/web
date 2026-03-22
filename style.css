@@ -1,113 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Math&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
-    font-family: "Roboto";
-}
-.img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-}
-img {
-    width: 70%;
-    border-radius: 10px;
-}
-.facults a {
-    text-decoration: none;
-    color: #000;
-    font-size: 20px;
-}
-.facults a:hover, a:focus {
-    padding: 10px;
-    background-color: #e7e9eb;
-    border-radius: 10px;
-}
-.facults a:active {
-    background-color: #870301;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    position: relative;
-    top: 3px;
-}
-.facults {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 60px;
-    border-bottom: 1px solid #000;
-}
-.err {
-    display: none;
-    color: red;
-}
-ul {
-    width: 80%;
-    list-style: none;
-}
-ul li:before {
-    content:  "–";
-    position: relative;
-    left: -10px;
-}
-li {
-    padding: 5px;
-}
-.roblox {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 60px;
-}
-.roblox__img {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 60px;
-    border-bottom: 1px solid #000;
-}
-h2 {
-    margin-top: 60px;
+    box-sizing: border-box; /* Критично для розрахунку ширини колонок */
 }
 
-form {
-    background-color: #e7e9eb;
-    display: flex;
-    flex-direction: column;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
     padding: 20px;
-    border-radius: 10px;
-    font-size: 18px;
-    width: 60%;
-}
-input {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: none;
-    outline: hidden;
-}
-*:focus {
-    outline: none;
-    border: none;
+    color: #333;
 }
 
-button {
-    padding: 10px;
-    margin: 10px;
-    background-color: #059862 ;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    width: 300px;
-    font-size: 18px;
+.main-container {
+    max-width: 80%;
+    margin: 0 auto;
 }
-input[type=number] {
-    appearance: textfield;
+
+h1 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Контейнер дошки */
+.kanban-board {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    /* Важливо: тут немає flex чи grid! Тільки стандартний блоковий потік. */
+}
+
+.kanban-column {
+    float: left; 
+    width: 30%; 
+    
+    margin-right: 2%;
+
+    background-color: #f4f5f7;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+.kanban-column:last-child {
+    margin-right: 0;
+}
+
+.column-header {
+    padding: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+.column-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.task-count {
+  background: rgba(255,255,255,0.5);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.todo-col .column-header {
+  background-color: #dfe6e9;
+  color: #2d3436;
+  border-top: 4px solid #74b9ff;
+}
+.progress-col .column-header {
+  background-color: #fff3cd;
+  color: #856404;
+  border-top: 4px solid #ffcc00;
+}
+.done-col .column-header {
+  background-color: #d4edda;
+  color: #155724;
+  border-top: 4px solid #28a745;
+}
+
+.column-content {
+  padding: 10px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    border-left: 3px solid transparent; 
+    cursor: grab;
+}
+
+.card:hover {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+}
+
+.card p {
+    margin: 0 0 10px 0;
+    font-weight: 500;
+}
+
+.card-meta {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.tag {
+    padding: 3px 6px;
+    border-radius: 4px;
+    background-color: #eee;
+    font-weight: 600;
+}
+
+.priority-high {
+  border-left-color: #e74c3c;
+}
+.priority-high .tag {
+  background-color: #fdcb6e;
+  color: #d35400;
+}
+
+.marked p {
+    text-decoration: line-through;
+}
+
+.input input {
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+    &:focus {
+        outline: none;
+    }
+}
+
+.input button {
+    background-color: #dfe6e9; 
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+}
+
+.input {
+    padding: 10px;
 }
